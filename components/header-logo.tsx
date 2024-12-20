@@ -4,10 +4,8 @@ import Link from "next/link";
 export const HeaderLogo = () => {
   return (
     <Link href="/">
-      <div className="hidden items-center lg:flex">
-        <Image src="/logo.svg" alt="Finance logo" height={28} width={28} />
-
-        <p className="ml-2.5 text-2xl font-semibold text-white">Finance</p>
+      <div className="items-center lg:flex">
+        <img src="/logo.png" className="w-[120px] lg:w-[200px]" alt="Logo"/>
       </div>
     </Link>
   );

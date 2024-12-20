@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const siteConfig: Metadata = {
-  title: "Finance",
-  description: "Track your income and expenses with Finance.",
+  title: "WalletWhiz",
+  description: "Track your income and expenses with WalletWhiz.",
   keywords: [
     "reactjs",
     "nextjs",
@@ -44,12 +44,5 @@ export const siteConfig: Metadata = {
     "html",
     "css",
   ] as Array<string>,
-  authors: {
-    name: "Sanidhya Kumar Verma",
-    url: "https://github.com/sanidhyy",
-  },
 } as const;
 
-export const links = {
-  sourceCode: "https://github.com/sanidhyy/finance-dashboard",
-} as const;
