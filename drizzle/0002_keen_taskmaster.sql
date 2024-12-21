@@ -1,0 +1,1 @@
+ALTER TABLE "goals" ALTER COLUMN "month" SET DATA TYPE text;
