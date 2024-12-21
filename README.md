@@ -1,45 +1,4 @@
-<a name="readme-top"></a>
 
-# Track your income and expenses with Finance.
-
-![Track your income and expenses with Finance.](/.github/images/img_main.png "Track your income and expenses with Finance.")
-
-[![Ask Me Anything!](https://flat.badgen.net/static/Ask%20me/anything?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy "Ask Me Anything!")
-[![GitHub license](https://flat.badgen.net/github/license/sanidhyy/finance-dashboard?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/finance-dashboard/blob/main/LICENSE "GitHub license")
-[![Maintenance](https://flat.badgen.net/static/Maintained/yes?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/finance-dashboard/commits/main "Maintenance")
-[![GitHub branches](https://flat.badgen.net/github/branches/sanidhyy/finance-dashboard?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/finance-dashboard/branches "GitHub branches")
-[![Github commits](https://flat.badgen.net/github/commits/sanidhyy/finance-dashboard?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/finance-dashboard/commits "Github commits")
-[![GitHub issues](https://flat.badgen.net/github/issues/sanidhyy/finance-dashboard?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/finance-dashboard/issues "GitHub issues")
-[![GitHub pull requests](https://flat.badgen.net/github/prs/sanidhyy/finance-dashboard?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/finance-dashboard/pulls "GitHub pull requests")
-[![Vercel status](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://appfinance.vercel.app/ "Vercel status")
-
-<!-- Table of Contents -->
-<details>
-
-<summary>
-
-# :notebook_with_decorative_cover: Table of Contents
-
-</summary>
-
-- [Folder Structure](#bangbang-folder-structure)
-- [Getting Started](#toolbox-getting-started)
-- [Screenshots](#camera-screenshots)
-- [Tech Stack](#gear-tech-stack)
-- [Stats](#wrench-stats)
-- [Contribute](#raised_hands-contribute)
-- [Acknowledgements](#gem-acknowledgements)
-- [Buy Me a Coffee](#coffee-buy-me-a-coffee)
-- [Follow Me](#rocket-follow-me)
-- [Learn More](#books-learn-more)
-- [Deploy on Vercel](#page_with_curl-deploy-on-vercel)
-- [Give A Star](#star-give-a-star)
-- [Star History](#star2-star-history)
-- [Give A Star](#star-give-a-star)
-
-</details>
-
-## :bangbang: Folder Structure
 
 Here is the folder structure of this app.
 
