@@ -31,8 +31,8 @@ const CarouselPage =({id,name}:CarouselPageProps) =>{
         <CarouselPrevious />
 
         <CarouselContent>
-        {data?.map((goal) => (
-          <CarouselItem className="bg-white py-6 px-10 rounded-md shadow text-gray-700">
+        {data?.map((goal,index) => (
+          <CarouselItem key={index} className="bg-white py-6 px-10 rounded-md shadow text-gray-700">
             <h1 className="text-2xl font-bold text-gray-800 mb-3">
               {name}
             </h1>
