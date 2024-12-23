@@ -2,17 +2,17 @@ import { useQuery } from "@tanstack/react-query";
 
 import { client } from "@/lib/hono";
 
-export const useGetGoals = (id?: string) => {
+export const useGetGoals = (id?: string,month?:string) => {
   const query = useQuery({
     enabled: !!id,
-    queryKey: ["category", { id }],
+    queryKey: ["goals", { id,month }],
     queryFn: async () => {
-      const response = await client.api.goals[":id"].$get({
+      const response = await client.api.goals[":id"][":month?"].$get({
         
-        param: { id },
+        param: { id ,month},
       })
 
-      if (!response.ok) throw new Error("Failed to fetch category.");
+      if (!response.ok) throw new Error("Failed to fetch goals.");
 
       const { data } = await response.json();
 

@@ -100,3 +100,18 @@ export function formatPercentage(
 
   return result;
 }
+
+
+export function formatDate(dateString:string) {
+  const date = new Date(dateString + "-01"); // Append a day to create a valid date
+  const month = date.toLocaleString('default', { month: 'short' }); // Get abbreviated month
+  const year = date.getFullYear().toString().slice(-2); // Get last two digits of the year
+  return `${month},${year}`;
+}
+
+export function getCurrentMonthInYYYYMM(): string {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = (now.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-based
+  return `${year}-${month}`;
+}

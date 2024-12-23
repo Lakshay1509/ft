@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "6",
-      "when": 1716047941044,
-      "tag": "0000_lying_shockwave",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "6",
-      "when": 1734785235335,
-      "tag": "0001_conscious_fat_cobra",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "6",
-      "when": 1734785664768,
-      "tag": "0002_keen_taskmaster",
+      "when": 1734849138089,
+      "tag": "0000_rapid_franklin_storm",
       "breakpoints": true
     }
   ]

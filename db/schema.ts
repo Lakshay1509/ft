@@ -63,6 +63,7 @@ export const insertTransactionSchema = createInsertSchema(transactions, {
 
 
 export const goals = pgTable("goals", {
+  id : text("id").primaryKey(),
   amount : integer("amount").notNull(),
   categoryId :  text("category_id").references(() => categories.id, {
     onDelete: "cascade",
@@ -77,3 +78,5 @@ export const goalsRelations = relations(goals, ({ one }) => ({
     references: [categories.id],
   }),
 }));
+
+export const insertGoalSchema = createInsertSchema(goals);
