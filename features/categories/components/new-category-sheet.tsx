@@ -17,6 +17,8 @@ const formSchema = insertCategorySchema.pick({
   name: true,
 });
 
+
+
 type FormValues = z.infer<typeof formSchema>;
 
 export const NewCategorySheet = () => {

@@ -27,6 +27,10 @@ const routes = [
     href: "/categories",
     label: "Categories",
   },
+  {
+    href : "/goals",
+    label : "Goals"
+  }
 ];
 
 export const Navigation = () => {

@@ -5,6 +5,7 @@ import accounts from "./accounts";
 import categories from "./categories";
 import summary from "./summary";
 import transactions from "./transactions";
+import goals from "./goals";
 
 export const runtime = "edge";
 
@@ -14,11 +15,13 @@ const routes = app
   .route("/accounts", accounts)
   .route("/categories", categories)
   .route("/summary", summary)
-  .route("/transactions", transactions);
-
+  .route("/transactions", transactions)
+  .route("/goals",goals)
+  
 export const GET = handle(app);
 export const POST = handle(app);
 export const PATCH = handle(app);
+export const PUT = handle(app);
 export const DELETE = handle(app);
 
 export type AppType = typeof routes;

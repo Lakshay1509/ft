@@ -112,6 +112,39 @@ const app = new Hono()
       return ctx.json({ data });
     }
   )
+  
+
+  .get(
+    "/category/:categoryId",
+    clerkMiddleware(),
+    async (ctx) => {
+      const auth = getAuth(ctx);
+      if (!auth?.userId) {
+        return ctx.json({ error: "Unauthorized." }, 401);
+      }
+
+      const categoryId = ctx.req.param("categoryId")
+      const data = await db
+      .select({
+          month: sql<string>`TO_CHAR(date, 'YYYY-MM')`.as('month'),
+          spent: sql<number>`SUM(amount)`.as('spent'),
+      })
+      .from(transactions)
+      .where(
+          sql`date >= NOW() - INTERVAL '12 months' AND amount < 0 AND category_id = ${categoryId}`
+      )
+      .groupBy(sql`TO_CHAR(date, 'YYYY-MM')`)
+      .orderBy(desc(sql`TO_CHAR(date, 'YYYY-MM')`));
+
+      if (!data) {
+        return ctx.json({ error: "Not found." }, 404);
+      }
+
+      return ctx.json({data});
+    }
+  )
+
+  
   .post(
     "/",
     clerkMiddleware(),
