@@ -34,7 +34,7 @@ const CarouselPage =({id,name}:CarouselPageProps) =>{
 
       <>
 
-        <Carousel className="mx-auto w-[280px] md:w-[500px] lg:w-[800px] rounded-lg shadow-lg bg-gradient-to-r from-white to-gray-50 py-2 my-7">
+        <Carousel className="mx-auto w-[350px] md:w-[500px] lg:w-[800px] rounded-lg shadow-lg bg-gradient-to-r from-white to-gray-50 py-2 my-7">
         <CarouselPrevious />
 
         <CarouselContent>
@@ -50,7 +50,7 @@ const CarouselPage =({id,name}:CarouselPageProps) =>{
             </p>
             <div className="flex items-center justify-between text-gray-600 text-[12px] md:text-[15px] font-bold">
              <Amount id={id} month={item.month}/>
-              <p>Spent Amount : {formatCurrency(convertAmountFromMilliunits
+              <p className="text-red-600">Spent Amount : {formatCurrency(convertAmountFromMilliunits
               (item.spent))}</p>
             </div>
 
