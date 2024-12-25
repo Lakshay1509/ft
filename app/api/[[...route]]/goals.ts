@@ -1,5 +1,5 @@
 import { db } from "@/db/drizzle";
-import { goals, insertGoalSchema } from "@/db/schema";
+import { categories, goals, insertGoalSchema } from "@/db/schema";
 import { getCurrentMonthInYYYYMM } from "@/lib/utils";
 import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
 import { zValidator } from "@hono/zod-validator";
@@ -8,7 +8,35 @@ import { and, desc, eq } from "drizzle-orm";
 import { Hono } from "hono";
 import { z } from "zod";
 
+
+
 const app = new Hono()
+
+.get(
+  "/",
+  clerkMiddleware(),
+  async (c) =>{
+    const auth = getAuth(c);
+    const month = getCurrentMonthInYYYYMM();
+
+    if (!auth?.userId) {
+      return c.json({ error: "Unauthorized" }, 401);
+    }
+
+    const data = await db
+      .select({
+        category: goals.categoryId,
+        limit: goals.amount,
+      })
+      .from(goals)
+      .innerJoin(categories,eq(goals.categoryId,categories.id))
+      .where(and(eq(categories.userId, auth.userId),
+        eq(goals.month,month)));
+
+    return c.json({ data });
+  }
+)
+
   .get(
     "/:id/:month?",
     zValidator(
