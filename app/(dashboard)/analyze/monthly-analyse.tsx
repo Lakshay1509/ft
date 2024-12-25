@@ -1,4 +1,4 @@
-import { convertAmountFromMilliunits, formatCurrency } from '@/lib/utils';
+import {formatCurrency } from '@/lib/utils';
 import Limit_name from './limit-name';
 
 type MonthlyAnalysisCardProps = {
