@@ -16,8 +16,10 @@ type MonthlyAnalysisCardProps = {
 
 const MonthlyAnalysisCard = ({ analysis,monthly }:MonthlyAnalysisCardProps) => {
   return (
+    
     <div className="space-y-4">
       {analysis.map((category) => (
+        (category.monthly_limit === 0) ? null :
         <div key={category.categoryId} className="bg-[#FEFEFA] p-4 rounded-lg">
           <Limit_name id={category.categoryId} />
           <div className="grid grid-cols-2 gap-3 text-sm">
@@ -54,5 +56,3 @@ const MonthlyAnalysisCard = ({ analysis,monthly }:MonthlyAnalysisCardProps) => {
 };
 
 export default MonthlyAnalysisCard;
-
-// In your main component, replace the monthly analysis section with the following:
