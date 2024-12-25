@@ -52,6 +52,12 @@ const AnalyzePage = () => {
     );
   }
 
+  if (goals.length === 0) {
+    return <div>Please add at least one goal.</div>;
+  }
+
+  
+
   return (
     <div className="p-4 text-white mb-8">
       <h1 className="mb-4 text-2xl text-center">Analysis Dashboard</h1>
