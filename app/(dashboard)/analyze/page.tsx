@@ -9,7 +9,7 @@ import { Loader2 } from "lucide-react";
 import MonthlyAnalysisCard from "./monthly-analyse";
 
 const analyzeData = async (data: any) => {
-  return axios.post("http://127.0.0.1:5000/analyze", data, {
+  return axios.post("https://ft-ml.onrender.com/analyze", data, {
     headers: {
       "Content-Type": "application/json",
     },
