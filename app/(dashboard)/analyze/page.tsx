@@ -44,6 +44,10 @@ const AnalyzePage = () => {
     }
   }, [transactions, goals]);
 
+  if (goals.length === 0) {
+    return <div>Please add at least one goal.</div>;
+  }
+
   if (transactionsLoading || goalsLoading || !analysisResult) {
     return (
       <div className="flex items-center text-white justify-center my-[80px]">
@@ -52,9 +56,7 @@ const AnalyzePage = () => {
     );
   }
 
-  if (goals.length === 0) {
-    return <div>Please add at least one goal.</div>;
-  }
+  
 
   
 
