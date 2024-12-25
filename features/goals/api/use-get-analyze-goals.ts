@@ -2,6 +2,7 @@
 import { useQuery } from "@tanstack/react-query";
 
 import { client } from "@/lib/hono";
+import { convertAmountFromMilliunits } from "@/lib/utils";
 
 export const useGetAnalyzeGoals = () => {
   const query = useQuery({
@@ -14,7 +15,11 @@ export const useGetAnalyzeGoals = () => {
 
       const {data}  = await response.json();
 
-      return data;
+      return data.map((goal) => ({
+        ...goal,
+        limit : convertAmountFromMilliunits(goal.limit),
+
+      }));
     },
   });
 

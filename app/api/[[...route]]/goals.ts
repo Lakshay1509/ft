@@ -26,7 +26,7 @@ const app = new Hono()
     const data = await db
       .select({
         category: goals.categoryId,
-        limit: goals.amount,
+        limit:  goals.amount,
       })
       .from(goals)
       .innerJoin(categories,eq(goals.categoryId,categories.id))

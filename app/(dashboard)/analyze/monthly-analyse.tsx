@@ -1,4 +1,4 @@
-import { formatCurrency } from '@/lib/utils';
+import { convertAmountFromMilliunits, formatCurrency } from '@/lib/utils';
 import Limit_name from './limit-name';
 
 type MonthlyAnalysisCardProps = {
@@ -37,7 +37,7 @@ const MonthlyAnalysisCard = ({ analysis,monthly }:MonthlyAnalysisCardProps) => {
             <div className='text-black'>
               <p className="text-gray-black">Within Limit</p>
               <p className={`text-lg font-medium ${category.savings_needed < 0 ? 'text-green-600' : 'text-red-400'}`}>
-                {formatCurrency(Math.abs(category.savings_needed))}
+                {formatCurrency((Math.abs(category.savings_needed)))}
               </p>
             </div>
             )}
