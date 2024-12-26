@@ -22,7 +22,7 @@ type PieVariantProps = {
 
 export const PieVariant = ({ data }: PieVariantProps) => {
   return (
-    <ResponsiveContainer width="100%" height={350}>
+    <ResponsiveContainer width="100%" height={270}>
       <PieChart>
         <Legend
           layout="horizontal"
@@ -74,8 +74,8 @@ export const PieVariant = ({ data }: PieVariantProps) => {
           data={data}
           cx="50%"
           cy="50%"
-          outerRadius={90}
-          innerRadius={60}
+          outerRadius={70}
+          innerRadius={50}
           paddingAngle={2}
           fill="#8884d8"
           dataKey="value"

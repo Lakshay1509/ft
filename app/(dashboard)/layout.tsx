@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from "react";
 
 import { Header } from "@/components/header";
+import Footer from "@/components/footer";
 
 const DashboardLayout = ({ children }: PropsWithChildren) => {
   return (
@@ -8,9 +9,7 @@ const DashboardLayout = ({ children }: PropsWithChildren) => {
       <Header />
       <main className="flex-grow px-3 lg:px-14 bg-black">
         {children}
-        <div className="w-full flex justify-center items-center">
-          <img src="./footer.png" className="w-[200px] mb-[10px]" />
-        </div>
+        <Footer/>
       </main>
     </div>
   );
