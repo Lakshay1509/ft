@@ -1,0 +1,624 @@
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('/bg.png');  
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    padding-right: 50px;
+    background-color: #1A1F3F;
+    
+    background-image: url('/bg.png');
+}
+
+.brand-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.nav-bar ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav-bar ul li {
+    margin-left: 35px;
+}
+
+/* Navigation Links */
+.nav-bar ul li a {
+    position: relative;
+    padding: 10px 15px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+}
+
+/* Hover Effect with Glass Effect */
+.nav-bar ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+    /* Optional: Add a subtle border or shadow for enhanced effect */
+    /* border: 1px solid rgba(255, 255, 255, 0.5); */
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+/* Hero Section - Flex layout to arrange the button and cards in separate rows */
+.hero-section {
+    display: flex;
+    flex-direction: column; /* Stacks elements vertically */
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.hero-section .button-container {
+    margin-bottom: 40px; /* Space between button and cards */
+}
+
+.content {
+    margin-bottom: 5px;
+}
+
+.tagline {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    align-self: center;
+    padding-left: 200px;
+}
+
+.description {
+    font-size: 1rem;
+    color: #dedede;
+    max-width: 10000px;
+    margin: auto;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Get Started Button */
+button.centered-button {
+    cursor: pointer;
+    font-weight: 700;
+    font-family: Helvetica, "sans-serif";
+    transition: all 0.2s;
+    padding: 10px 20px;
+    border-radius: 100px;
+    background: #200e69;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+button.centered-button:hover {
+    background: #14192D;
+}
+
+.text {
+    color:#00ca4e;
+}   
+
+button.centered-button > svg {
+    width: 34px;
+    margin-left: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+button.centered-button:hover svg {
+    transform: translateX(5px);
+}
+
+button.centered-button:active {
+    transform: scale(0.95);
+}
+
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Adds spacing between cards */
+    margin-top: 30px; /* Adds spacing between the button and cards */
+}
+
+
+/* Card Styles */
+.card {
+    width: 190px;
+    height: 254px;
+    background-color: #023252;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    cursor: pointer;
+}
+
+/* Hover effect for the card to make it pop-up */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+/* Optionally, you can stagger the animation for each card */
+.card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+.card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+.card:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.tools {
+    display: flex;
+    align-items: center;
+    padding: 9px;
+}
+
+.circle {
+    padding: 0 4px;
+}
+
+
+/* Footer */
+.footer {
+    text-align: center;
+    background: #1A1F3F;
+    padding: 15px;
+    font-size: 0.9rem;
+    color: #CCCCCC;
+}
+
+/* Features Section */
+.features-section {
+    padding: 50px 20px;
+    background-color: black;
+    text-align: center;
+
+}
+.features-section h2 {
+    font-size: 2.5rem;
+    color: #200e69;
+    margin-bottom: 30px;
+}
+.features-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.feature {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+}
+.feature h3 {
+    font-size: 1.5rem;
+    color: #200e69;
+    margin-bottom: 10px;
+}
+.feature p {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+.testimonials-section h2 {
+    font-size: 2.5rem;
+    color: #200e69;
+    margin-bottom: 30px;
+}
+.testimonials-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.testimonial {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+.testimonial p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+.testimonial footer {
+    font-size: 0.9rem;
+    color: #888;
+    font-style: italic;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 50px 20px;
+    background-color: white;
+}
+.faq-section h2 {
+    font-size: 2.5rem;
+    color: #200e69;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+.faq {
+    margin-bottom: 20px;
+}
+.faq h4 {
+    font-size: 1.2rem;
+    color: #200e69;
+    margin-bottom: 10px;
+}
+.faq p {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* General Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Header Animation */
+.header {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Hero Section Animations */
+.hero-section .tagline {
+    animation: slideInFromLeft 1s ease-in-out;
+}
+
+.hero-section .description {
+    animation: slideInFromLeft 1.2s ease-in-out;
+}
+
+/* Button Animation */
+.centered-button {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.centered-button:hover {
+    transform: scale(1.1);
+    background-color: #004c34; /* Darker green */
+}
+
+
+
+/* General Animations */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* Base style for elements that are hidden before animation */
+.scroll-hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Style for elements when they are visible */
+.scroll-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Initially Hidden for Scroll Animations */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 2s, transform 2s;
+}
+
+.fade-in {
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Visible When in View */
+.scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Features Section */
+.features-section {
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.features-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.feature {
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    animation: zoomIn 1s ease-in-out;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.testimonials-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.testimonial {
+    background: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    animation: slideInFromRight 1s ease-in-out;
+}
+
+/* FAQ Section */
+.faq-section {
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.faq {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .nav-bar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-section {
+        padding: 30px 15px;
+    }
+
+    .tagline {
+        font-size: 2rem;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .description {
+        font-size: 0.9rem;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .card-container {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .card {
+        width: 150px;
+        height: 200px;
+    }
+
+    .features-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonials-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .faq-container {
+        width: 100%;
+        padding: 0 20px;
+    }
+}
+
+/* Tablet Devices */
+@media (max-width: 1024px) {
+    .hero-section {
+        padding: 40px 20px;
+    }
+
+    .tagline {
+        font-size: 2.5rem;
+    }
+
+    .card {
+        width: 170px;
+        height: 230px;
+    }
+
+    .feature {
+        width: 220px;
+    }
+
+    .testimonial {
+        width: 270px;
+    }
+}
+
+/* Large Devices */
+@media (min-width: 1200px) {
+    .hero-section {
+        padding: 60px 20px;
+    }
+
+    .card {
+        width: 200px;
+        height: 260px;
+    }
+
+    .feature {
+        width: 280px;
+    }
+
+    .testimonial {
+        width: 350px;
+    }
+}
+
+/* Add the fade-in animation */
+.fade-in {
+    opacity: 0; /* Start fully transparent */
+    transform: translateY(20px); /* Start slightly below */
+    animation: fadeIn 1s ease-out forwards; /* Animation details */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Original position */
+    }
+}
+
+header .brand-name button {
+    all: unset; /* Resets default button styles */
+    cursor: pointer;
+}
+
+header .brand-name img:hover {
+    opacity: 0.8; /* Adds a hover effect for better UX */
+}
+
