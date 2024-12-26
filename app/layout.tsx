@@ -2,7 +2,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import type { PropsWithChildren } from "react";
-
+import { Analytics } from '@vercel/analytics/next';
 import { Toaster } from "@/components/ui/sonner";
 import { siteConfig } from "@/config";
 import { QueryProviders } from "@/providers/query-provider";
@@ -28,6 +28,7 @@ const RootLayout = ({ children }: Readonly<PropsWithChildren>) => {
             <Toaster richColors theme="dark" />
 
             {children}
+            <Analytics />
           </QueryProviders>
         </body>
       </html>
