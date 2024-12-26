@@ -62,16 +62,16 @@ const AnalyzePage = () => {
 
   return (
     <div className="p-4 text-white mb-8">
-      <h1 className="mb-4 text-2xl text-center">Analysis Dashboard</h1>
+      
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <section className="rounded bg-gray-800 p-4">
-          <h2 className="mb-4 text-xl">Monthly Analysis</h2>
+          <h2 className="mb-4 md:text-xl">Monthly Analysis</h2>
           <MonthlyAnalysisCard
             analysis={analysisResult.data.monthly_analysis} monthly={true}
           />
         </section>
         <section className="rounded bg-gray-800 p-4">
-          <h2 className="mb-4 text-xl">Five Days Analysis</h2>
+          <h2 className="mb-4 md:text-xl">Five Days Analysis</h2>
           <MonthlyAnalysisCard
             analysis={analysisResult.data.five_day_analysis} monthly={false}
           />

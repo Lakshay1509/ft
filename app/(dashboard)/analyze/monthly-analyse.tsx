@@ -18,7 +18,7 @@ const MonthlyAnalysisCard = ({
   monthly,
 }: MonthlyAnalysisCardProps) => {
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 text-xs">
       {analysis.map((category) =>
         category.monthly_limit === 0 ? null : (
           <div
@@ -32,7 +32,7 @@ const MonthlyAnalysisCard = ({
                 {formatCurrency(category.monthly_limit - category.total_spent)})
               </span>
             </div>
-            <div className="grid grid-cols-2 gap-3 text-sm">
+            <div className="grid grid-cols-2 gap-3">
               <div className="text-black">
                 <p>Daily Average</p>
                 <p className="text-lg font-medium">
@@ -59,7 +59,7 @@ const MonthlyAnalysisCard = ({
                       : "Over Budget (by daily avg.)"}
                   </p>
                   <p
-                    className={`text-lg font-medium ${category.savings_needed < 0 ? "text-green-600" : "text-red-400"}`}
+                    className={`text-sm font-medium ${category.savings_needed < 0 ? "text-green-600" : "text-red-400"}`}
                   >
                     {formatCurrency(Math.abs(category.savings_needed))}
                   </p>
@@ -68,7 +68,7 @@ const MonthlyAnalysisCard = ({
             </div>
 
             {category.daily_saving_suggestion > 0 && (
-              <div className="mt-3 rounded bg-yellow-900 p-2">
+              <div className="mt-3 rounded bg-yellow-900 p-2 text-xs">
                 <p className="text-yellow-400">
                   Suggested daily savings:{" "}
                   {formatCurrency(category.daily_saving_suggestion)}
