@@ -43,7 +43,7 @@ const Banner2 = () => {
                   </div>
                 </div>
                 <div className="mt-8 flex justify-center sm:justify-start">
-                <Link href="/">
+                <Link href="/sign-in">
                   <Button className="rounded-full text-[16px] sm:text-[20px] font-primary">
                     Get Started
                     <span className="ml-3">

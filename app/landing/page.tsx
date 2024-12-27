@@ -50,7 +50,7 @@ const Page = () => {
   <Hero />
 </AuroraBackground>
         <div className="w-full flex justify-center items-center font-primary">
-        <Link href="/">
+        <Link href="/sign-in">
           <Button className="mb-4 text-[14px] sm:text-[15px] md:mt-4 lg:text-[20px]">
             Get Started
             <span className="ml-2 md:ml-3">
