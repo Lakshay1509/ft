@@ -39,7 +39,6 @@ const AnalyzePage = () => {
 
   React.useEffect(() => {
     if (transactions.length && goals.length) {
-      console.log(formattedData)
       analyze(formattedData);
     }
   }, [transactions, goals]);

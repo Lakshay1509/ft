@@ -21,7 +21,7 @@ export const Header = () => {
             
           </div>
             <ClerkLoaded>
-              <UserButton afterSignOutUrl="/" />
+              <UserButton afterSignOutUrl="/landing" />
             </ClerkLoaded>
 
             <ClerkLoading>
