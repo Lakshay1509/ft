@@ -29,7 +29,7 @@ const CardsLanding = () => {
             </div>
             <div className='space-y-2'>
               <h1 className='font-bold'>Categories based spendings</h1>
-              <p className='text-sm'>Graphs provide dynamic, real-time visualizations of expenses, income, and savings trends.</p>
+              <p className='text-sm'>Track your monthly budget allocations and spot spending patterns.</p>
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@ const CardsLanding = () => {
             </div>
             <div className='space-y-2'>
               <h1 className='font-bold'>Analysis for better savings</h1>
-              <p className='text-sm'>Graphs provide dynamic, real-time visualizations of expenses, income, and savings trends.</p>
+              <p className='text-sm'>Compare year-over-year financial performance with customizable chart views and filters.</p>
             </div>
           </div>
         </div>
@@ -53,7 +53,7 @@ const CardsLanding = () => {
             </div>
             <div className='space-y-2'>
               <h1 className='font-bold'>Segregate accounts</h1>
-              <p className='text-sm'>Graphs provide dynamic, real-time visualizations of expenses, income, and savings trends.</p>
+              <p className='text-sm'>Set financial goals and monitor progress through interactive milestone tracking charts.</p>
             </div>
           </div>
         </div>

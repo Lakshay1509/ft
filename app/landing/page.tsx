@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import Image from "next/image";
 import React from "react";
-import CardsLanding from "./cardslanding";
-import {MoveRight } from "lucide-react";
+import CardsLanding from "./components/cardslanding";
+import { MoveRight } from "lucide-react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import Header from "./components/header";
 import Banner from "./components/banner";
@@ -16,6 +16,8 @@ import Banner2 from "./components/banner2";
 import Navbar from "./components/navbar";
 import Hero from "./components/hero";
 import Link from "next/link";
+import Last from "./components/last";
+
 
 
 
@@ -60,8 +62,8 @@ const Page = () => {
         </Link>
         </div>
 
-        <div className="flex items-center justify-center ">
-          <Image src="/hero_bg.svg" alt="hero" width={1000} height={1000} />
+        <div className="flex items-center justify-center px-4 md:px-0 ">
+          <Image src="https://res.cloudinary.com/backend-15/image/upload/v1735388308/Finance%20Tracker/hero_bg_kh7b7b.svg" alt="hero" width={1000} height={1000} />
         </div>
 
         <div className="ml-[50px] mt-[100px] flex flex-col text-left font-primary text-[25px] font-bold text-white lg:text-[35px] ">
@@ -91,6 +93,10 @@ const Page = () => {
 </ContainerScroll>
 
         <Banner2 />
+
+        <Last/>
+        
+        
       </div>
     </>
   );

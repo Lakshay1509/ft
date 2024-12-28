@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import React from "react";
 
@@ -49,7 +51,7 @@ const Banner = () => {
       </div>
 
       <div className="w-full lg:w-1/2">
-        <Image src="/banner.png" alt="banner" width={1000} height={1000} />
+        <Image src="https://res.cloudinary.com/backend-15/image/upload/v1735317378/Finance%20Tracker/banner_zpzmhu.png" alt="banner" width={1000} height={1000} />
       </div>
     </div>
   );
