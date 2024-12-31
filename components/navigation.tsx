@@ -31,10 +31,10 @@ const routes = [
     href : "/goals",
     label : "Goals"
   },
-  {
-    href: "/analyze",
-    label: "Analyze",
-  }
+  // {
+  //   href: "/analyze",
+  //   label: "Analyze",
+  // }
 ];
 
 export const Navigation = () => {
