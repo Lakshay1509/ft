@@ -8,8 +8,9 @@ import axios from "axios";
 import { Loader2 } from "lucide-react";
 import MonthlyAnalysisCard from "./monthly-analyse";
 
+
 const analyzeData = async (data: any) => {
-  return axios.post("https://finance-tracker-gpd2enf4ffdwfzfd.centralindia-01.azurewebsites.net/analyze", data, {
+  return await axios.post("https://finance-tracker-gpd2enf4ffdwfzfd.centralindia-01.azurewebsites.net/analyze", data, {
     headers: {
       "Content-Type": "application/json",
     },
@@ -26,7 +27,8 @@ const AnalyzePage = () => {
     onError: (error) => {
       console.error("Analysis failed:", error);
     },
-  });
+  }
+);
 
   const formattedData = {
     transactions: transactions.map((transaction) => ({
