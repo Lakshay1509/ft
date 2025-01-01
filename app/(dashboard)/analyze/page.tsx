@@ -7,6 +7,7 @@ import React from "react";
 import axios from "axios";
 import { Loader2 } from "lucide-react";
 import MonthlyAnalysisCard from "./monthly-analyse";
+import { useGetTransactionByMonth } from "@/features/transactions/api/use-get-byMonth-transactions";
 
 
 const analyzeData = async (data: any) => {
@@ -19,7 +20,7 @@ const analyzeData = async (data: any) => {
 
 const AnalyzePage = () => {
   const { data: transactions = [], isLoading: transactionsLoading } =
-    useGetTransactions();
+  useGetTransactionByMonth();
   const { data: goals = [], isLoading: goalsLoading } = useGetAnalyzeGoals();
 
   const { mutate: analyze, data: analysisResult } = useMutation({

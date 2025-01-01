@@ -1,7 +1,7 @@
 import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
 import { zValidator } from "@hono/zod-validator";
 import { createId } from "@paralleldrive/cuid2";
-import { parse, subDays } from "date-fns";
+import { endOfMonth, parse, startOfMonth, subDays } from "date-fns";
 import { and, desc, eq, gte, inArray, lte, sql } from "drizzle-orm";
 import { Hono } from "hono";
 import { z } from "zod";
@@ -70,6 +70,47 @@ const app = new Hono()
       return ctx.json({ data });
     }
   )
+
+  // ...existing code...
+.get(
+  "/current-month",
+ 
+  clerkMiddleware(),
+  async (ctx) => {
+    const auth = getAuth(ctx);
+
+    if (!auth?.userId) {
+      return ctx.json({ error: "Unauthorized." }, 401);
+    }
+
+    const startOfCurrentMonth = startOfMonth(new Date());
+    const endOfCurrentMonth = endOfMonth(new Date());
+
+    const data = await db
+      .select({
+        id: transactions.id,
+        date: transactions.date,
+        category: categories.name,
+        categoryId: transactions.categoryId,
+        amount: transactions.amount,
+      })
+      .from(transactions)
+      .innerJoin(accounts, eq(transactions.accountId, accounts.id))
+      .leftJoin(categories, eq(transactions.categoryId, categories.id))
+      .where(
+        and(
+          
+          eq(accounts.userId, auth.userId),
+          gte(transactions.date, startOfCurrentMonth),
+          lte(transactions.date, endOfCurrentMonth)
+        )
+      )
+      .orderBy(desc(transactions.date));
+
+    return ctx.json({ data });
+  }
+)
+// ...existing code...
   .get(
     "/:id",
     zValidator(
