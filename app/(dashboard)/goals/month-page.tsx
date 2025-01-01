@@ -12,7 +12,7 @@ type MonthPageProps = {
 const MonthPage = ({id,name}:MonthPageProps) => {
     const month = getCurrentMonthInYYYYMM()
     const [data] = useGetGoals(id,month).data||[];
-    console.log(data)
+
 
     
     return (

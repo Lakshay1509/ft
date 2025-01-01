@@ -2,12 +2,15 @@
 
 import { AlertCircle, ChartArea, Database, UserPlus } from 'lucide-react'
 import React from 'react'
+import CSV from './csv'
 
 const CardsLanding = () => {
   return (
-    <div className="h-[60rem] lg:h-[28rem] w-full bg-[#301934] bg-dot-white/[0.2] relative   py-10 px-4">
+    <div className="h-[75rem] md:h-[60rem] lg:h-[40rem] w-full bg-[#301934] bg-dot-white/[0.2] relative   py-10 px-4">
       {/* Radial gradient for the container to give a faded look */}
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-[#301934] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+
+      
     
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto'>
         <div className='w-full max-w-[300px] mx-auto h-[200px] bg-white rounded-lg p-6 hover:shadow-lg transition-shadow'>
@@ -57,7 +60,12 @@ const CardsLanding = () => {
             </div>
           </div>
         </div>
+
+      
       </div>
+
+      <CSV/>
+      
     </div>
   )
 }

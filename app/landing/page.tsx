@@ -22,6 +22,7 @@ import Last from "./components/last";
 
 
 
+
 const Page = () => {
 
   const { isSignedIn } = useAuth();
@@ -86,11 +87,15 @@ const Page = () => {
 
         <CardsLanding />
 
+        
+
         <Banner />
 
         <ContainerScroll titleComponent={<Header />}>
   <Footer />
 </ContainerScroll>
+
+              
 
         <Banner2 />
 
