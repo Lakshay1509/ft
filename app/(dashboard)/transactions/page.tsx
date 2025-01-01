@@ -1,7 +1,7 @@
 "use client";
 
 import { Loader2, Plus } from "lucide-react";
-
+import { useState } from "react";
 import { DataTable } from "@/components/data-table";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,14 +9,68 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useBulkDeleteTransactions } from "@/features/transactions/api/use-bulk-delete-transactions";
 import { useGetTransactions } from "@/features/transactions/api/use-get-transactions";
 import { useNewTransaction } from "@/features/transactions/hooks/use-new-transaction";
+import { transactions as transactionSchema } from "@/db/schema"
 
 import { columns } from "./columns";
+import { ImportCard } from "./import-card";
+import { UploadButton } from "./upload-button";
+import { toast } from "sonner";
+import { useSelectAccount } from "@/features/accounts/hooks/use-select-account";
+import { useBulkCreateTransactions } from "@/features/transactions/api/use-bulk-create-transactions";
+
+
+enum VARIANTS {
+  LIST = "LIST",
+  IMPORT = "IMPORT",
+}
+
+const INITIAL_IMPORT_RESULTS = {
+  data: [],
+  errors: [],
+  meta: [],
+};
 
 const AccountsPage = () => {
+  const [variant, setVariant] = useState<VARIANTS>(VARIANTS.LIST);
+  const [importResults, setImportResults] = useState(INITIAL_IMPORT_RESULTS);
+
+  const [AccountDialog, confirm] = useSelectAccount();
   const newAccount = useNewTransaction();
   const deleteTransactions = useBulkDeleteTransactions();
+  const createTransactions = useBulkCreateTransactions();
   const transactionsQuery = useGetTransactions();
   const transactions = transactionsQuery.data || [];
+
+  const onUpload = (results: typeof INITIAL_IMPORT_RESULTS) => {
+    setImportResults(results);
+    setVariant(VARIANTS.IMPORT);
+  };
+
+  const onCancelImport = () => {
+    setImportResults(INITIAL_IMPORT_RESULTS);
+    setVariant(VARIANTS.LIST);
+  };
+
+  const onSubmitImport = async (
+    values: (typeof transactionSchema.$inferInsert)[]
+  ) => {
+    const accountId = await confirm();
+
+    if (!accountId) {
+      return toast.error("Please select an account to continue.");
+    }
+
+    const data = values.map((value) => ({
+      ...value,
+      accountId: accountId as string,
+    }));
+
+    createTransactions.mutate(data, {
+      onSuccess: () => {
+        onCancelImport();
+      },
+    });
+  };
 
   const isDisabled = transactionsQuery.isLoading || deleteTransactions.isPending;
 
@@ -38,15 +92,32 @@ const AccountsPage = () => {
     );
   }
 
+  if (variant === VARIANTS.IMPORT) {
+    return (
+      <>
+        <AccountDialog />
+
+        <ImportCard
+          data={importResults.data}
+          onCancel={onCancelImport}
+          onSubmit={onSubmitImport}
+        />
+      </>
+    );
+  }
+
   return (
     <div className="mx-auto -mt-6 w-full max-w-screen-2xl pb-10">
       <Card className="border-none drop-shadow-sm">
         <CardHeader className="gap-y-2 lg:flex-row lg:items-center lg:justify-between">
           <CardTitle className="line-clamp-1 text-xl">Transactions Page</CardTitle>
 
-          <Button size="sm" onClick={newAccount.onOpen}>
+          <div className="flex flex-col items-center gap-x-2 gap-y-2 lg:flex-row">
+          <Button size="sm" className="w-full" onClick={newAccount.onOpen}>
             <Plus className="mr-2 size-4" /> Add new
           </Button>
+          <UploadButton onUpload={onUpload} />
+          </div>
         </CardHeader>
 
         <CardContent>

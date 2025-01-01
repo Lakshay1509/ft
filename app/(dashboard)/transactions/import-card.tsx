@@ -1,4 +1,4 @@
-import { format, parse } from "date-fns";
+import { format} from "date-fns";
 import { useState } from "react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,7 +7,7 @@ import { convertAmountToMilliunits } from "@/lib/utils";
 
 import { ImportTable } from "./import-table";
 
-const dateFormat = "yyyy-MM-dd HH:mm:ss";
+const dateFormat = "dd-MM-yyyy HH:mm:ss";
 const outputFormat = "yyyy-MM-dd";
 
 const requiredOptions = ["amount", "date", "payee"];
@@ -95,7 +95,9 @@ export const ImportCard = ({ data, onCancel, onSubmit }: ImportCardProps) => {
     const formattedData = arrayOfData.map((item) => ({
       ...item,
       amount: convertAmountToMilliunits(parseFloat(item.amount)),
-      date: format(parse(item.date, dateFormat, new Date()), outputFormat),
+      // ...existing code...
+      date: format(new Date(item.date?.trim()), "yyyy-MM-dd HH:mm:ss.SSS"),
+// ...existing code...,
     }));
 
     onSubmit(formattedData);
