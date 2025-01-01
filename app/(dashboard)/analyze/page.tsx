@@ -1,7 +1,7 @@
 "use client";
 
 import { useGetAnalyzeGoals } from "@/features/goals/api/use-get-analyze-goals";
-import { useGetTransactions } from "@/features/transactions/api/use-get-transactions";
+
 import { useMutation } from "@tanstack/react-query";
 import React from "react";
 import axios from "axios";
