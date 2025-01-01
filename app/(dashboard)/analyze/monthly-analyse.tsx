@@ -23,37 +23,37 @@ const MonthlyAnalysisCard = ({
         category.monthly_limit === 0 ? null : (
           <div
             key={category.categoryId}
-            className="rounded-xl bg-white p-5 shadow-sm transition-all hover:shadow-md"
+            className="rounded-xl bg-slate-50 p-5 shadow-sm transition-all hover:shadow-md"
           >
             <div className="mb-4 flex items-center justify-between">
               <div className="flex items-center">
                 <Limit_name id={category.categoryId} />
-                <span className="ml-2 rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600">
+                <span className="ml-2 rounded-full bg-blue-100 px-3 py-1 text-blue-600">
                   Remaining: {formatCurrency(category.monthly_limit - category.total_spent)}
                 </span>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-3">
-              <div className="rounded-lg bg-gray-50 p-4 transition-all hover:bg-gray-100">
+              <div className="rounded-lg bg-slate-100 p-4 transition-all hover:bg-slate-200">
                 <p className="text-sm text-gray-600">Daily Average</p>
                 <p className="mt-1  font-semibold text-gray-900">
                   {formatCurrency(category.avg_daily_spent)}
                 </p>
               </div>
-              <div className="rounded-lg bg-gray-50 p-4 transition-all hover:bg-gray-100">
+              <div className="rounded-lg bg-slate-100 p-4 transition-all hover:bg-slate-200">
                 <p className="text-sm text-gray-600">Total Spent</p>
                 <p className="mt-1  font-semibold text-gray-900">
                   {formatCurrency(category.total_spent)}
                 </p>
               </div>
-              <div className="rounded-lg bg-gray-50 p-4 transition-all hover:bg-gray-100">
+              <div className="rounded-lg bg-slate-100 p-4 transition-all hover:bg-slate-200">
                 <p className="text-sm text-gray-600">Monthly Limit</p>
                 <p className="mt-1 font-semibold text-gray-900">
                   {formatCurrency(category.monthly_limit)}
                 </p>
               </div>
               {monthly && (
-                <div className="rounded-lg bg-gray-50 p-4 transition-all hover:bg-gray-100">
+                <div className="rounded-lg bg-slate-100 p-4 transition-all hover:bg-slate-200">
                   <p className="text-sm text-gray-600">
                     {category.savings_needed < 0
                       ? "Remaining Budget"
@@ -61,10 +61,10 @@ const MonthlyAnalysisCard = ({
                   </p>
                   <span className="text-black text-[12px]">By daily avg.</span>
                   <p
-                    className={`mt-1  font-semibold ${
+                    className={`mt-1 font-semibold ${
                       category.savings_needed < 0
-                        ? "text-emerald-600"
-                        : "text-rose-500"
+                        ? "text-teal-600"
+                        : "text-purple-500"
                     }`}
                   >
                     {formatCurrency(Math.abs(category.savings_needed))}
@@ -74,8 +74,8 @@ const MonthlyAnalysisCard = ({
             </div>
 
             {category.daily_saving_suggestion > 0 && (
-              <div className="mt-4 rounded-lg bg-amber-50 p-4 text-sm">
-                <p className="flex items-center text-amber-800">
+              <div className="mt-4 rounded-lg bg-blue-50 p-4 text-sm">
+                <p className="flex items-center text-blue-800">
                   <svg
                     className="mr-2 h-5 w-5"
                     fill="none"
