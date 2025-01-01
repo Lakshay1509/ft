@@ -18,48 +18,54 @@ const MonthlyAnalysisCard = ({
   monthly,
 }: MonthlyAnalysisCardProps) => {
   return (
-    <div className="space-y-4 text-xs">
+    <div className="space-y-6">
       {analysis.map((category) =>
         category.monthly_limit === 0 ? null : (
           <div
             key={category.categoryId}
-            className="rounded-lg bg-[#FEFEFA] p-4"
+            className="rounded-xl bg-white p-5 shadow-sm transition-all hover:shadow-md"
           >
-            <div className="mb-[12px] flex items-center">
-              <Limit_name id={category.categoryId} />
-              <span className="ml-2 text-xs text-gray-500">
-                (Remaining:{" "}
-                {formatCurrency(category.monthly_limit - category.total_spent)})
-              </span>
+            <div className="mb-4 flex items-center justify-between">
+              <div className="flex items-center">
+                <Limit_name id={category.categoryId} />
+                <span className="ml-2 rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600">
+                  Remaining: {formatCurrency(category.monthly_limit - category.total_spent)}
+                </span>
+              </div>
             </div>
             <div className="grid grid-cols-2 gap-3">
-              <div className="text-black">
-                <p>Daily Average</p>
-                <p className="text-lg font-medium">
+              <div className="rounded-lg bg-gray-50 p-4 transition-all hover:bg-gray-100">
+                <p className="text-sm text-gray-600">Daily Average</p>
+                <p className="mt-1  font-semibold text-gray-900">
                   {formatCurrency(category.avg_daily_spent)}
                 </p>
               </div>
-              <div className="text-black">
-                <p>Total Spent</p>
-                <p className="text-lg font-medium">
+              <div className="rounded-lg bg-gray-50 p-4 transition-all hover:bg-gray-100">
+                <p className="text-sm text-gray-600">Total Spent</p>
+                <p className="mt-1  font-semibold text-gray-900">
                   {formatCurrency(category.total_spent)}
                 </p>
               </div>
-              <div className="text-black">
-                <p>Monthly Limit</p>
-                <p className="text-lg font-medium">
+              <div className="rounded-lg bg-gray-50 p-4 transition-all hover:bg-gray-100">
+                <p className="text-sm text-gray-600">Monthly Limit</p>
+                <p className="mt-1 font-semibold text-gray-900">
                   {formatCurrency(category.monthly_limit)}
                 </p>
               </div>
               {monthly && (
-                <div className="text-black">
-                  <p className="text-gray-black">
+                <div className="rounded-lg bg-gray-50 p-4 transition-all hover:bg-gray-100">
+                  <p className="text-sm text-gray-600">
                     {category.savings_needed < 0
-                      ? "Remaining Budget(by daily avg.) "
-                      : "Over Budget (by daily avg.)"}
+                      ? "Remaining Budget"
+                      : "Over Budget"}
                   </p>
+                  <span className="text-black text-[12px]">By daily avg.</span>
                   <p
-                    className={`text-sm font-medium ${category.savings_needed < 0 ? "text-green-600" : "text-red-400"}`}
+                    className={`mt-1  font-semibold ${
+                      category.savings_needed < 0
+                        ? "text-emerald-600"
+                        : "text-rose-500"
+                    }`}
                   >
                     {formatCurrency(Math.abs(category.savings_needed))}
                   </p>
@@ -68,10 +74,23 @@ const MonthlyAnalysisCard = ({
             </div>
 
             {category.daily_saving_suggestion > 0 && (
-              <div className="mt-3 rounded bg-yellow-900 p-2 text-xs">
-                <p className="text-yellow-400">
-                  Suggested daily savings:{" "}
-                  {formatCurrency(category.daily_saving_suggestion)}
+              <div className="mt-4 rounded-lg bg-amber-50 p-4 text-sm">
+                <p className="flex items-center text-amber-800">
+                  <svg
+                    className="mr-2 h-5 w-5"
+                    fill="none"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                    />
+                  </svg>
+                  Suggested daily savings: {formatCurrency(category.daily_saving_suggestion)}
                 </p>
               </div>
             )}
