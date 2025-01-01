@@ -60,7 +60,10 @@ export const TransactionForm = ({
 }: TransactionFormProps) => {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues,
+    defaultValues: {
+      ...defaultValues,
+      date: defaultValues?.date || new Date(),
+    },
   });
 
   const handleSubmit = (values: FormValues) => {
@@ -68,6 +71,7 @@ export const TransactionForm = ({
     const amountInMilliunits = convertAmountToMilliunits(amount);
 
     onSubmit({
+      
       ...values,
       amount: amountInMilliunits,
     });

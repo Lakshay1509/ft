@@ -131,7 +131,12 @@ const app = new Hono()
       })
       .from(transactions)
       .where(
-          sql`date >= NOW() - INTERVAL '12 months' AND amount < 0 AND category_id = ${categoryId}`
+          sql`
+    date >= DATE_TRUNC('month', NOW() - INTERVAL '12 months')
+    AND date < DATE_TRUNC('month', NOW() + INTERVAL '1 month')
+    AND amount < 0 
+    AND category_id = ${categoryId}
+  `
       )
       .groupBy(sql`TO_CHAR(date, 'YYYY-MM')`)
       .orderBy(desc(sql`TO_CHAR(date, 'YYYY-MM')`));
