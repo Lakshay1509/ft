@@ -15,7 +15,7 @@ const CSV = () => {
       
     </div>
 
-    <h1 className='text-[30px] md:text-[35px] text-center text-white font-bold'>in CSV format</h1>
+    <h1 className='text-[30px] md:text-[35px] text-center text-white font-bold'>by using Excel</h1>
     </div>
   )
 }
