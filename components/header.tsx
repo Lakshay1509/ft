@@ -10,7 +10,7 @@ export const Header = () => {
     <>
     <div className="w-full bg-black text-white font-primary text-center p-2 text-sm">
 
-      We have migrated our domain to <a href="https://www.walletly.site/" className="underline">Walletly</a>. Please login to the new domain and we'll migrate your account to the new domain within 24hrs.
+      We have migrated our domain to <a href="https://www.walletly.site/" className="underline">Walletly</a> Please login to the new domain and we would migrate your account to the new domain within 24hrs.
 
     </div>
     <header className="bg-[url('/bg.png')] bg-cover bg-center bg-no-repeat px-4 py-8 lg:px-14 pb-36">
