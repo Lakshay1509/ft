@@ -38,7 +38,7 @@ const Banner2 = () => {
                         color: "transparent",
                       }}
                     >
-                      WalletWhiz
+                      Walletly
                     </span>
                   </div>
                 </div>

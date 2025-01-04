@@ -2,7 +2,6 @@
 
 import { useAuth } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 import Image from "next/image";
 import React from "react";
 import CardsLanding from "./components/cardslanding";
@@ -48,10 +47,7 @@ const Page = () => {
     <>
       <div className="overflow-hidden bg-[#301934]  ">
         <Navbar />
-
-        <AuroraBackground className="bg-[#301934]">
-  <Hero />
-</AuroraBackground>
+          <Hero/>
         <div className="w-full flex justify-center items-center font-primary">
         <Link href="/sign-in">
           <Button className="mb-4 text-[14px] sm:text-[15px] md:mt-4 lg:text-[20px]">
@@ -67,7 +63,7 @@ const Page = () => {
           <Image src="https://res.cloudinary.com/backend-15/image/upload/v1735388308/Finance%20Tracker/hero_bg_kh7b7b.svg" alt="hero" width={1000} height={1000} />
         </div>
 
-        <div className="ml-[50px] mt-[100px] flex flex-col text-left font-primary text-[25px] font-bold text-white lg:text-[35px] ">
+        <div className="ml-[50px] mt-[100px] flex flex-col   text-left font-primary text-[25px] font-bold text-white lg:text-[35px] ">
           <div>Take Charge of your financial</div>
           <div>destiny with our revolutionary</div>
           <div>
@@ -79,7 +75,7 @@ const Page = () => {
                 color: "transparent",
               }}
             >
-              WalletWhiz
+              Walletly
             </span>{" "}
             dashboard
           </div>

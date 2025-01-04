@@ -3,7 +3,7 @@ import React from 'react'
 const Navbar = () => {
   return (
     <header
-    className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border-b border-white/90  bg-[#301934]/80 py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg">
+    className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border border-white/90  bg-[#301934]/80 py-3 shadow shadow-white backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg">
     <div className="px-4">
         <div className="flex items-center justify-between">
             <div className="flex shrink-0">

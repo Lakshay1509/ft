@@ -18,7 +18,7 @@ const Banner = () => {
                 color: "transparent",
               }}
             >
-              WalletWhiz
+              Walletly
             </span>
           </div>
           <h1>managment</h1>
