@@ -28,7 +28,7 @@ const Banner2 = () => {
                 <div className="font-primary text-[28px] font-bold text-white sm:text-[35px] 
                 -ml-[5px]">
                   <h1>Transform your financial</h1>
-                  <div className="flex flex-row items-center gap-1">
+                  <div className="flex flex-row  justify-center items-center gap-1">
                     <h1 className="whitespace-nowrap">future with</h1>
                     <span
                       className="font-normal italic"

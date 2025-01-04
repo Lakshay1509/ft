@@ -25,7 +25,7 @@ const SignInPage = () => {
       </div>
 
       <div className="hidden h-full items-center justify-center bg-black lg:flex">
-        <Image src="/logo.png" alt="Finance logo" height={300} width={300} />
+        <Image src="/new_logo.png" alt="Finance logo" height={300} width={300} />
       </div>
     </div>
   );
