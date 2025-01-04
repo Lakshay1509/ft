@@ -1,49 +1,35 @@
-import * as React from "react";
-import { format } from "date-fns";
-import { CalendarIcon } from "lucide-react";
-import { type SelectSingleEventHandler } from "react-day-picker";
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { cn } from "@/lib/utils";
-
-type DatePickerProps = {
+type Props = {
   value?: Date;
-  onChange?: SelectSingleEventHandler;
+  onChange?: (date: Date | null) => void;
   disabled?: boolean;
 };
 
-export const DatePicker = ({ value, onChange, disabled }: DatePickerProps) => {
-  return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button
-          disabled={disabled}
-          variant="outline"
-          className={cn(
-            "w-full justify-start text-left font-normal",
-            !value && "text-muted-foreground"
-          )}
-        >
-          <CalendarIcon className="mr-2 size-4" />
-          {value ? format(value, "PPP") : <span>Pick a date</span>}
-        </Button>
-      </PopoverTrigger>
+export const CustomDatePicker: React.FC<Props> = ({
+  value,
+  onChange,
+  disabled,
+}) => {
+  const [selectedDate, setSelectedDate] = useState<Date | null>(value || null);
 
-      <PopoverContent>
-        <Calendar
-          mode="single"
-          selected={value}
-          onSelect={onChange}
-          disabled={disabled}
-          initialFocus
-        />
-      </PopoverContent>
-    </Popover>
+  return (
+    <div className="w-full">
+      <DatePicker
+        selected={selectedDate}
+        onChange={(date) => {
+          setSelectedDate(date);
+          onChange?.(date);
+        }}
+        disabled={disabled}
+        placeholderText="Pick a date"
+        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-sm
+                   focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+                   disabled:bg-gray-100 disabled:cursor-not-allowed
+                   hover:border-gray-400 transition-colors duration-200"
+      />
+    </div>
   );
 };

@@ -3,7 +3,7 @@ import { Trash } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { AmountInput } from "@/components/amount-input";
-import { DatePicker } from "@/components/date-picker";
+import { CustomDatePicker } from "@/components/date-picker";
 import { Select } from "@/components/select";
 import { Button } from "@/components/ui/button";
 import {
@@ -95,7 +95,7 @@ export const TransactionForm = ({
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <DatePicker
+                <CustomDatePicker
                   value={field.value}
                   onChange={field.onChange}
                   disabled={disabled}
