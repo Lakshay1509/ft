@@ -5,7 +5,6 @@ import { endOfMonth, parse, startOfMonth, subDays } from "date-fns";
 import { and, desc, eq, gte, inArray, lte, sql } from "drizzle-orm";
 import { Hono } from "hono";
 import { z } from "zod";
-
 import { db } from "@/db/drizzle";
 import {
   accounts,
@@ -110,6 +109,62 @@ const app = new Hono()
     return ctx.json({ data });
   }
 )
+
+// ...existing code...
+.get(
+  "/most-used",
+  clerkMiddleware(),
+  async (ctx) => {
+    const auth = getAuth(ctx);
+    if (!auth?.userId) return ctx.json({ error: "Unauthorized." }, 401);
+
+    const defaultTo = new Date(); // Current date
+    const defaultFrom = subDays(defaultTo, 5); // 5 days ago
+
+    
+    const [mostUsedAccount] = await db
+      .select({
+        name: accounts.name,
+      })
+      .from(transactions)
+      .innerJoin(accounts, eq(transactions.accountId, accounts.id))
+      .where(
+        and(
+          eq(accounts.userId, auth.userId), // Ensure account belongs to the user
+          gte(transactions.date, defaultFrom),
+          lte(transactions.date, defaultTo)
+        )
+      )
+      .groupBy(accounts.name)
+      .orderBy(desc(sql`COUNT(${transactions.id})`))
+      .limit(1);
+
+    // Fetch the most used category from the last 5 days
+    const [mostUsedCategory] = await db
+      .select({
+        name: categories.name,
+        
+      })
+      .from(transactions)
+      .leftJoin(categories, eq(transactions.categoryId, categories.id))
+      .where(
+        and(
+          eq(categories.userId, auth.userId),
+          gte(transactions.date, defaultFrom),
+          lte(transactions.date, defaultTo)
+        )
+      )
+      .groupBy(categories.name)
+      .orderBy(desc(sql`COUNT(${transactions.id})`))
+      .limit(1);
+
+    // Return the results
+    return ctx.json({  mostUsedCategory , mostUsedAccount });
+  }
+)
+
+
+
 // ...existing code...
   .get(
     "/:id",

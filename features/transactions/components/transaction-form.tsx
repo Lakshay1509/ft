@@ -15,7 +15,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { insertTransactionSchema } from "@/db/schema";
 import { convertAmountToMilliunits } from "@/lib/utils";
 
@@ -197,27 +196,7 @@ export const TransactionForm = ({
           )}
         />
 
-        <FormField
-          name="notes"
-          control={form.control}
-          disabled={disabled}
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Notes</FormLabel>
 
-              <FormControl>
-                <Textarea
-                  {...field}
-                  value={field.value || ""}
-                  disabled={disabled}
-                  placeholder="Optional notes..."
-                />
-              </FormControl>
-
-              <FormMessage />
-            </FormItem>
-          )}
-        />
 
         <Button className="w-full" disabled={disabled}>
           {id ? "Save changes" : "Create transaction"}
