@@ -28,7 +28,7 @@ const MonthlyAnalysisCard = ({
             <div className="mb-4 flex items-center justify-between">
               <div className="flex items-center">
                 <Limit_name id={category.categoryId} />
-                <span className="ml-2 rounded-full bg-blue-100 px-3 py-1 text-blue-600">
+                <span className="ml-2 rounded-full bg-blue-100 px-3 py-1 text-[13px] text-blue-600">
                   Remaining: {formatCurrency(category.monthly_limit - category.total_spent)}
                 </span>
               </div>
